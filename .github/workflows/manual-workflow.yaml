@@ -1,0 +1,31 @@
+name: Manual Deploy
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Deployment environment'
+        required: true
+        type: choice
+        options:
+          - development
+          - staging
+          - production
+      version:
+        description: 'Version to deploy'
+        required: true
+        type: string
+        default: 'latest'
+      dry_run:
+        description: 'Run without making changes'
+        required: false
+        type: boolean
+        default: false
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy
+        run: |
+          echo "Environment: ${{ inputs.environment }}"
+          echo "Version: ${{ inputs.version }}"
+          echo "Dry run: ${{ inputs.dry_run }}"   
