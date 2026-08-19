@@ -28,4 +28,20 @@ jobs:
         run: |
           echo "Environment: ${{ inputs.environment }}"
           echo "Version: ${{ inputs.version }}"
+          echo "Dry run: ${{ inputs.dry_run }}"  
+  
+      - name: Deploy 2
+        run: |
+          echo "Environment: ${{ inputs.environment }}"
+          echo "Version: ${{ inputs.version }}"
           echo "Dry run: ${{ inputs.dry_run }}"   
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build
+        run: |
+          echo "Environment: ${{ inputs.environment }}"
+          echo "Version: ${{ inputs.version }}"
+          echo "Dry run: ${{ inputs.dry_run }}"  
+  
